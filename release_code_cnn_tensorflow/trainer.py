@@ -68,7 +68,7 @@ class Solver(object):
 
                 print("Current test accuracy is: {0} at step: {1} ".format(test_acc,step))
 
-                if test_acc > 0.9:
+                if test_acc > 0.96:
                     return 
 
             else:
@@ -81,5 +81,5 @@ class Solver(object):
             self.cfg_dict = self.cfg__dict__
             for key in sorted(self.cfg_dict.keys()):
                 if key[0].isupper():
-                    self.cfg_str = '{}: {}\n'.format(key, self.cfg_dict[key])
+                    self.cfg_str = '{0}: {1}\n'.format(key, self.cfg_dict[key])
                     f.write(self.cfg_str)

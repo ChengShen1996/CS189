@@ -38,12 +38,12 @@ class Viz_Feat(object):
 
             response_map = self.sess.run(net.response_map,feed_dict = {net.images: batch_eval, net.labels: batch_label})
 
-            img_name = 'image_' + str(idx) + '.png'
+            img_name = 'image_lambda_{0}/image_'.format(net.weights_regularizer) + str(idx) + '.png'
             cv2.imwrite(img_name,datum['c_img'])
             for i in range(5):
                 img = self.revert_image(response_map[0,:,:,i])
 
-                img_name = 'image_' + str(idx) + '_filter_' + str(i) + '.png'
+                img_name = 'image_lambda_{0}/image_'.format(net.weights_regularizer) + str(idx) + '_filter_' + str(i) + '.png'
 
                 cv2.imwrite(img_name,img)
                 # cv2.waitKey(300)
